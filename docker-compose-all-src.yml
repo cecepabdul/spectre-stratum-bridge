@@ -9,8 +9,13 @@ services:
     restart: unless-stopped
     user: "0"
     command:
+      - '-log=true'
       - '-stats=false'
-      - '-spectre=host.docker.internal:18110'
+      - '-stratum=:5555'
+      - '-prom=:2114'
+      - '-spectre=162.253.42.63:18110'
+      - '-mindiff=64'
+      - '-vardiff=true'
     ports:
       - 5555:5555
       - 2114:2114
